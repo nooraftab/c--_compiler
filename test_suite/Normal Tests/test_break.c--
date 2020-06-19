@@ -1,0 +1,70 @@
+/* output:
+1 
+3
+3
+3
+6
+*/
+int x;
+int array[12];
+int z;
+
+int foo(int r, int hello) {
+
+   int x;
+   char array[10];
+   int y;
+
+   x = 1;
+
+   write x;  // write 1
+   writeln;
+
+   while (x < 3) { 
+      int p;
+      p = 2;
+      while (p < 100) { 
+         int x;
+         x = 3;
+         p = x;
+         write x;  // write 3
+         writeln;
+         break;
+         write p;  // not executed 
+         writeln;
+         p = 20000;
+      }
+
+      x = p;      // write 3
+      write x;
+      writeln;
+      {
+         int z;
+
+         z = 10;
+      }
+      break;
+      write x;    // not executed 
+      writeln;
+   }
+
+   {
+      int q;
+      q = 12;
+   }
+
+   write x;   // write 3
+   writeln;
+   return (x * 2 );
+}
+
+
+int main() {
+
+   int x;
+   x=1;
+   x = x + 1;
+   foo(x, x+1);
+   write x;		// write 6
+   writeln;
+}

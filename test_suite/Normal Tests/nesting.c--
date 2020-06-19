@@ -1,0 +1,44 @@
+// should print
+// 1000
+// 2000
+// 3000
+// 3
+
+int fun() {
+  int x;
+  x = 0;
+  {
+     int x;
+     x = 1;
+     write 1000;
+     writeln;
+     {
+        int x;
+        x = 2;
+        write 2000;
+        writeln;
+        {
+           int x;
+           x = 3;
+           write 3000;
+           writeln;
+           return x;
+        }
+        write 2001;
+        writeln;
+        return x;
+     }
+     write 1001;
+     writeln;
+     return x;
+  }
+  write 0;
+  writeln;
+  return x;
+}
+
+int main() {
+  write fun();
+  writeln;
+}
+

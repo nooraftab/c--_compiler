@@ -1,0 +1,12 @@
+int add3(int a, int b, int c) {
+  return a+b+c;
+}
+
+int negate(int z) {
+  return -z;
+}
+
+int main(){
+  write negate(add3(1,2,3));
+  writeln;
+}

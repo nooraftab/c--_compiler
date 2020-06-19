@@ -1,0 +1,19 @@
+int a;
+
+int test0() {
+  return 0;
+}
+
+int test1(int one) {
+  return one;
+}
+
+int test2(int one, int two) {
+  return one + two;
+}
+
+int main() {
+  write test0();
+  write test1(100);
+  write test2(100,200);
+}

@@ -1,0 +1,48 @@
+int afunction(int a, int b) {
+  return a+b;
+}
+
+// this is a test
+int main() {
+  int x; 
+  int y;
+  char z;
+  int arr[10];
+  int i;
+  /*
+     this is a longish
+     comment
+     for testing
+   */
+
+  i = 0;
+  while (1) {
+    if (i >= 10) {
+    	break;
+    }
+    else {
+    	i = i;
+    }
+    arr[i] = i;
+    i = i + 1;
+  }
+
+  x = 1 + 2 - 3 * 4 / 5; // another comment
+  read y;
+  y = afunction(x, y);
+  z = 'a';
+  z = '\t';
+  writeln;
+  if( x == y) {
+      x = 1+2-3*4/5; // another comment
+  } else {
+      write x;
+  }
+  if( !x || (z <= 'b' &&  arr[2] == 2)) {
+  	write arr[2];
+  } else {
+  	write arr[1];
+  }
+
+}
+

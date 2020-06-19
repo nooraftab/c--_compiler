@@ -1,0 +1,68 @@
+// tests arrays used as lvalues, rvalues for global, local, and param arrays
+// (these are some of the more difficult code generation cases to handle)
+// also tests functions without return values
+/* program output:
+4
+2
+2
+1
+4
+2
+6
+3
+*/
+
+int a1[10];
+
+
+ int foo(int a[], int x, int y) {
+    a[x] = a[y] + a[y];    
+    ;
+} 
+
+ int grr(int a[], int x, int y) {
+    int a2[10];
+    int i;
+    i = 0;
+
+     while(i < 10) {
+     //return;
+      a2[i] = 2;
+      i = i + 1;
+    }
+   foo(a2, 1, 2);
+    write a2[1];  
+    writeln;
+
+    write a2[2];  
+    writeln;
+    foo(a, 1, 2);
+    write a[1];  
+    writeln;
+    write a[2];  
+    writeln; 
+
+   a[x] = a[y]; 
+
+} 
+
+
+int main() {
+
+  int a3[10];
+  int i;
+  i = 0; 
+
+  write !(5==7);
+  writeln;
+
+   while(i < 10) {
+    a1[i] = 1;
+    a3[i] = 3;
+    i = i + 1;
+  } 
+
+  grr(a1, 1, 2);  // writes 4  2  2  1 
+  grr(a3, 1, 2);  // writes 4  2  6  3
+
+}

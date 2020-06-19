@@ -1,0 +1,41 @@
+/* 
+   tests blocks with separate variable declarations
+   should output:
+   2 1 0 3 0 1 0 0
+*/
+
+int main(char c, char d, char e) {
+  // level 0
+  int a;
+  int b;
+
+  a = 0;
+  b = 0;
+  {
+    // level 1
+    int b;
+    b = 1;
+    {
+      // level 2
+      int a;
+      a = 2;
+      write a;
+      write b;
+      writeln;
+    }
+    {
+      // another level 2
+      int b;
+      b = 3;
+      write a;
+      write b;
+      writeln;
+    }
+    write a;
+    write b;
+    writeln;
+  }
+  write a;
+  write b;
+  writeln;
+}
