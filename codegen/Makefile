@@ -4,6 +4,7 @@
 # make depend: automatically build .o file dependencies
 # make: build mycc
 # make clean: removes all .o and executable files
+# @author: Valerie Barr
 #
 
 CC = gcc
