@@ -1,0 +1,74 @@
+/*
+	Makes a really cool square! Also prints the square
+	of the first number that the user inputs (except if the 
+	user inputs 65)
+*/
+int i;
+int j;
+
+char makeAFunSquare(char length, char height) {
+	int throne;
+	throne = 0;
+	i = 0;
+
+	while (i < height) {
+		j = 0;
+		while (j < length) {
+			if (j == throne) {
+				write 1;
+			} else {
+				write 0;
+			}
+			j = j + 1;
+		}
+		writeln;
+		throne = throne + 1;
+		i = i + 1;
+	}
+}
+
+int assignArray(char x[], char a,  char b) {
+	x[0] = a;
+	x[1] = b; 
+}
+
+int convolutedSquare(char a) {
+	char square;
+	i=0;
+	while (i < a) {
+		char fillerNum;
+		{ //Block is here just for show
+			char fillerNum;
+			fillerNum = 420;
+		}
+		{
+			i = i+1;
+			square = a*i;
+		}
+		{	
+			//If first thing user inputs is 65, return 97 - why not?
+			if (a == 'A') {
+				return 'a';
+			} else ;
+		}
+	}
+	return square;
+}
+
+int main() {
+	char smallNumArray[2];
+	char smallNumber1;
+	char smallNumber2;
+	
+	read smallNumber1;
+	read smallNumber2;
+
+	assignArray(smallNumArray, smallNumber1, smallNumber2);
+
+	writeln;
+	makeAFunSquare(smallNumArray[0], smallNumArray[1]);
+	writeln;
+
+	write convolutedSquare(smallNumArray[0]);
+
+}

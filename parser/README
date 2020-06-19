@@ -1,0 +1,84 @@
+run: an example script for running a set of test programs on the parser
+     change the names of the programs to match yours, and then run the script: 
+     ./run                    
+
+==================================================================
+AST
+===
+The AST will be built top-down as you parse.
+
+This will mean that most parser routines will be passed a parent
+node to which they may add new child nodes as you parse.  In some cases, 
+however, some parser routines will need to return an ast subtree that is 
+added to the larger tree by the caller.  Some parts of the AST cannot be 
+constructed until after calls have been made down to the bottom of the 
+rules that build parts of them.  In this case, some parse functions may 
+need to return AST subtrees to the calling routines that will then add 
+these as child nodes or add themselves as child nodes as appropriate.  
+For example, when parsing:
+
+  x = 9*5 + 7
+  
+ the resulting AST should look like:
+
+           = 
+        /     \
+       x       +
+             /  \
+            *    7
+          /  \
+         9    5
+
+When parsing this, however, the parser does not know that it needs to 
+generate a new AST node for + until after 9*5 has been parsed (and its
+part of the AST tree has been built).  As a result, the parser function
+that calls later functions to parse 9*5, cannot create a + parent node
+to pass to these functions.  Instead the called functions need to return
+an AST, that can be added to a new + node by the caller.
+
+As you add AST building functionality to your parser, think about 
+
+* when one or more ast_node pointers need to be passed to functions
+  by the calling function:
+  * some functions may create ast nodes which will be added as child nodes
+    to parent nodes that are created later
+  * some functions may need a parent node to which they add new child
+    ast nodes 
+* when functions need to return ast_node pointers to the caller
+  * when the calling function doesn't know what type of node it should
+    create until after some of the functions it calls have returned
+
+This will help you to determine how to modify the function prototpyes
+for your parser and pass and return the necessary information to build
+the AST tree as you parse.
+     
+
+Here are some suggestions for AST organization:
+------------------------------------------------
+                                program
+                        /                       \
+        child 0:                                child 1:
+  global variables                              function def list
+  (one child per dec)                           (one child per function)
+
+
+
+
+
+
+       function node:
+
+       child 0: type
+       child 1: id
+       child 2: param list (one child per param)
+       child 3: block
+
+
+       block:
+        child 0: variable declaration list
+                m children: one per variable declaration
+        child 1: stmt list
+                 n children: one per stmt
+
+
+

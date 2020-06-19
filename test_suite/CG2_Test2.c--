@@ -1,0 +1,36 @@
+/*
+	Recursion works too! Prints first 12 numbers
+	of the Fibonacci Sequence.
+*/
+
+int fibArray[12];
+int i; 
+
+int fibonacci(int n) {
+	if (n==0) 
+		return 0;
+	 else ; 
+
+	//Nested conditionals don't work, so this is seperate
+	if (n==1) 
+		return 1;
+	else ;
+
+	return fibonacci(n-1)+fibonacci(n-2);
+}
+
+int main() {
+	i = 0;
+
+	while (i < 12) { //Anything larger and it gets SLOW
+		fibArray[i] = fibonacci(i);
+		i = i + 1;
+	}
+
+	i = 0;
+	while (i < 12) {
+		write fibArray[i];
+		writeln;
+		i = i + 1;
+	}
+}

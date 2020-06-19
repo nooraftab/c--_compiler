@@ -1,0 +1,19 @@
+Noor's Project 2 Report! :)
+
+• The LL(1) grammar I used is the updated one posted on the Moodle! I did make my own grammar which I submitted for Checkpoint 1, but figured there was no reason not to use the grammar I know is correct (or very close to correct)!
+
+• For error recovery, there are 3 error functions that help (all 3 print error messages):
+ 
+	1. parser_error() - the same thing from the starter code that prints an error and         	exits the program. I used this in places where it didn't seem great to continue parsing (e.g. a wrong type 
+
+	2. insert_missing_token() - for cases where we can insert a token and continue 		parsing (like a missing semicolon somewhere, or a missing LBRACE/RPAREN/COMMA). It 	should be noted that I didn't fully implement a Synchronising Set (I basically       	eye-balled situations where I could easily insert a token and move on). I did make 	use of what the slides said about actions for terminals vs non-terminals!
+
+	3. skip_ahead() - for cases when inserting a token wasn't an option but I thought 	ending the program wasn't completely necessary. It chugs through tokens until it 	reaches a ';' or '}' (since those signified a statement or a function ending, 		which are natural points to pick up from). I especially used this for expression 	and statement errors!
+
+	NOTE: I tried to be consistent as far as it was reasonable to be but there are 		places 	where I don't use skip_ahead or insert_missing_token (even though it was 	possible) just because it seemed like a lot to juggle. If I had (a lot) more time, 	I would've dug into it more but I didn't want to invest more time than I have (it 	sadly took me a while to do this) especially with code generation still left.
+
+• My parser works on all the sample C-- files in test_suite (and my own sample program) so I know it works for everything the grammar tests in those files! It's possible that there are things I missed out on since I didn't truly go out of my way to make a program to test everything, so those would be errors I don't know.
+
+Happy grading! It's super, duper long :(
+
+	

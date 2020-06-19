@@ -1,0 +1,45 @@
+This is Noor's Project Report for Code Generation Part 2! It contains an outline of how the files interact with each other, more detailed descriptions of all the .c files (since that has changed quite a bit since CodeGen P1), some things to note about the submitted compiler, and part(s) of the project I found difficult.
+
+OUTLINE: 
+
+Main calls parse, which creates the AST. Main then calls traverse_and_generate_code() - lives in codetraversal.c - which kickstarts the entire process of traversing the tree and generating the corresponding MIPS code. 
+
+As functions in codetraversal.c call each other during tree traversal, they also instruct traversaltotable.c on what code it should add to the Code Table on a high-level (in other words, it calls functions in traversaltotable.c and lets it handle the specifics). Once traversal is finished, main calls output_code_table_to_file() which writes the contents of the Code Table to the MIPS file.
+
+FILE DESCRIPTIONS:
+
+	• codetraversal.c: Basically replaced codegen.c. Contains functions that correspond to every AST node. Within these functions, they execute what should happen on seeing that node e.g. for a variable declaration, push it to the symbol table and make space for it on the stack according to its type.
+
+	• traversalmechanics.c: Contains functions that help codetraversal.c work its magic - essentially a file full of helpers, so codetraversal.c doesn't get cluttered.
+
+
+	• traversaltotable.c: Contains functions that codetraversal.c calls as it traverses, that handle exactly what gets put into the Code Table. codetraversal only needs to know what it does - the function names provide a high-level description of what they do (as one would expect from function names)
+
+	• tablemechanics.c: Serving a similar purpose to traversalmechanics.c, this file contains helpers that traversaltotable.c uses as it figures out the specifics of what gets entered into the Code Table. Arguably the nittiest-grittiest file of them all :P
+
+
+THINGS TO NOTE ABOUT COMPILER FUNCTIONALITY:
+
+• I fixed my negation operator! It does the actual logical operation, instead of the bitwise operation.
+
+• Compiler doesn't work if main() isn't the last declared function.
+
+• There is 0 type checking.
+	• Also, if you pass in wrong types to functions (especially arrays), the user might get a MIPS error (and weird outputs in general). I leave it to the programmer to re-check their work :)
+
+• There isn't any support for nested conditionals - however, since we know how nested loops work, it is trivial to add this support. Given more time (and less pandemic), consider it done!
+
+• If you don't initialise array values, you'll get weird outputs. Currently, I assume the programmer knows what they're doing, so I set arrays to be initialised at the time of declaration.
+
+• We cannot read in with an array index - however, this is more due to the way the grammar is set up.
+
+• The funcOffset variable in codetraversal arguably has the same purpose as stackCurrOffset, so it might be redundant. However, I was too afraid to touch it once I got things to work right - given more time, I would try to clean that up so there aren't so many globals floating around!
+
+WHAT WAS HARD:
+
+• I had a frustrating time with local/parameter variable allocation and making sure byte alignment was right - even now, I'm still not convinced I have it perfectly right (even though all the test cases work). I think it was mostly due to the math, the mental image I needed of how the stack was growing, and questions I had about which direction MIPS stores things in - this was all probably made worse because of the general stress of finals week and moving.
+
+
+If you read all of this: it's been a really good semester Valerie! Thank you so much for being flexible with all of us - I really do appreciate it, and I'm sure I'm not the only one. Have a lovely summer and with any luck, I'll see you around Clapp in the Fall! :)
+
+	
