@@ -1,3 +1,4 @@
+// @author: Noor Aftab
 #ifndef _SYMTAB_H
 #define _SYMTAB_H
 
