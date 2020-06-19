@@ -1,3 +1,4 @@
+// @author: Valerie Barr
 /****** lexer.h ********************************************************/
 
 #ifndef _LEXER_H
@@ -12,7 +13,7 @@
 #define NONE           -1
 #define LEXERROR       -1 
 
-// Enums for possible token values
+// Enums for possible token values. By Noor Aftab
 typedef enum {STARTTOKEN, 
 			  ID, NUM, FLOAT, 
 			  READ, IF, ELSE, INTTOK, CHARTOK,
