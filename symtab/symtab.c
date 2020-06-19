@@ -1,3 +1,4 @@
+// @author Noor Aftab
 #include <stdio.h>
 #include <stdlib.h>
 #include "symtab.h"
@@ -7,7 +8,7 @@ static void add_symtab_entry_to_symtab(SymTabEntry *entry);
 static void add_symtab_to_stack(SymTab *table);
 static void check_duplicate_entry(char *name);
 
-//The almight symbol table stack
+//The almighty symbol table stack
 static SymTabStack *stack; 
 
 void init_symtab_stack() {
