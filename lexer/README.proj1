@@ -1,0 +1,20 @@
+Noor's Lexical Analyser! It (hopefully) does things a lexical analyser should.
+
+1. Things have definitely changed a bit since Parts 1-3. Instead of numbers using an INT
+   token, I changed it to be NUM so I/other people wouldn't get confused with the 'int' 
+   keyword.
+   
+   I also ~streamlined~ my handling of keywords - instead of having a million states for 
+   each letter in each keyword, I treat them all as IDs first and just check if the IDs
+   match a keyword. Maybe not as true to the DFA-style, but better for my sanity.
+
+
+2. To compile, enter "make" in the command line.
+ 
+   To run, we'll need an example C-- file to run on. For the example below, I use 
+   factorial.c-- from the Test Suite: ./lexer ../test_suite/factorial.c--
+
+   For something that isn't in the test suite, just replace the second argument with the
+   directory and file name you want.
+
+3./4. For example outputs, I put the .txt files containing the output in ./lexer/              sample_output. One test file I used was factorial.c-- from the Test Suite. The second test file is a modification of simple.c-- (also from the Test Suite) that throws an error because of an incorrect char literal

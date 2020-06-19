@@ -1,0 +1,21 @@
+/*
+   tests a recursive function
+   should output:
+   ? 3
+   6
+*/
+
+int fact(int n) {
+  if (n <= 1)
+    return 1;
+  else
+    return n * fact(n-1);
+}
+
+int main() {
+  int value;
+
+  read value;
+  write fact(value);
+  writeln;
+}

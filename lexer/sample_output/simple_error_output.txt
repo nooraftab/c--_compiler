@@ -1,0 +1,14 @@
+Script started on 2020-02-27 16:32:59+0000
+ID.main
+LPAREN
+RPAREN
+LBRACE
+KEYWORD.write
+LPAREN
+LPAREN
+KEYWORD.int
+RPAREN
+You're in some ~trouble~. Look below.
+Line 4: Char literal goes like: 'a'
+
+Script done on 2020-02-27 16:32:59+0000

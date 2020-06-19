@@ -1,0 +1,5 @@
+
+main() {
+	// Should throw an error! 
+	write ((int) 'a)+ 9;
+}
