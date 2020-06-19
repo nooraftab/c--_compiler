@@ -16,6 +16,8 @@ As functions in `codetraversal.c` call each other during tree traversal, they al
 
 ## File Descriptions
 #### `codegen `
+The 3rd general step of compiling. <br/>
+
 • `codetraversal.c`: Contains functions that correspond to every AST node. Within these functions, they execute what should happen on seeing that node e.g. for a variable declaration, push it to the symbol table and make space for it on the stack according to its type.
 
 • `traversalmechanics.c`: Contains functions that help `codetraversal.c` work its magic - essentially a file full of helpers, so codetraversal.c doesn't get cluttered.
@@ -25,12 +27,17 @@ As functions in `codetraversal.c` call each other during tree traversal, they al
 
 • `tablemechanics.c`: Serving a similar purpose to `traversalmechanics.c`, this file contains helpers that  traversaltotable.c   uses as it figures out the specifics of what gets entered into the Code Table. Arguably the nittiest-grittiest file of them all.
 #### `symtab`
+• `symtab.c`: Contains functions for setting-up and modifying our Symbol Table (so our compiler can process functions and variables)
 
 #### `ast`
+• `ast.c`: Functions for setting up and modifying the AST (for parsing the input C-- files)
 
 #### `parser`
+• `parser.c`: Parses our C-- file through recursive decent (kickstarted by main, of course) and generates the AST data structure. 
 
 #### `lexer`
+• `lexer.c`: When the `lexer()` function here is called in `parse()`, it spits out the next token in the input C-- file. The lexer runs alongside the parser as it parses!
+
 ## Things to note!
 
 • Compiler doesn't work if main() isn't the last declared function.
