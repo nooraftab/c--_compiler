@@ -1,7 +1,7 @@
 /****** parser.h ********************************************************/
 // this should contain definitions that are defined by the parser and
 // that are shared across files and modules
-//
+// @author: Valerie Barr
 #ifndef _PARSER_H_
 #define _PARSER_H_
 
@@ -36,10 +36,9 @@
 #define END_AST_SYM   434       // used to specify end of valid range
 
 #define ROOT          401       // the root ast node 
-//#define VAR_DEC_LIST  402       // a list of variable declarations
 
 typedef enum {
-
+	// By Noor Aftab
 	PROGRAM=401, PROG1, PROG2,
 	FDL1, FUNC_DECL, VAR_DECL, VDL1,
 	PDL, PDL1, PDL2, BLOCK,
