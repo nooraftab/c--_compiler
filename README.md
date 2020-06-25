@@ -42,8 +42,7 @@ The 3rd general step of compiling. <br/>
 
 • Compiler doesn't work if main() isn't the last declared function.
 
-• There is 0 type checking.
-	• Also, if you pass in wrong types to functions (especially arrays), the user might get a MIPS error (and weird outputs in general). I leave it to the programmer to re-check their work :)
+• There is 0 type checking, mainly because C-- only has types **int** and **char** (and char's are treated like ints). Also, if you pass in wrong types to functions (especially arrays), the user might get a MIPS error (and weird outputs in general). I leave it to the programmer to re-check their work :)
 
 • There isn't any support for nested conditionals - however, since we know how nested loops work, it is trivial to add this support. Consider it an improvement for v2!
 
